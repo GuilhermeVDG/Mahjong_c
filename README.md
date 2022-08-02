@@ -1,1 +1,1 @@
-"# Mahjong_C" 
+Mahjong game in c
