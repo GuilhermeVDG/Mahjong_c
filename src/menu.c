@@ -59,4 +59,5 @@ void printMenu(){
 void main(){
     _setmode(_fileno(stdout), 0x00020000);
     printMenu();
+    printPiece(3,10, "a");
 } 
