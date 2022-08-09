@@ -2,6 +2,7 @@
 #include<windows.h>
 #include<conio.h>
 #include<wchar.h>
+#include<stdlib.h>
 #include"console.h"
 
 void gotoxy(int x, int y){
@@ -14,6 +15,11 @@ void gotoxy(int x, int y){
 
 void reset(){
     system("cls");
+}
+
+void quit(){
+    reset();
+    exit(1);
 }
 
 

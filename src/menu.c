@@ -2,6 +2,7 @@
 #include<wchar.h>
 #include<windows.h>
 #include<conio.h>
+#include<stdlib.h>
 #include"console.h"
 #include"style.h"
 
@@ -27,7 +28,7 @@ void printMenu(){
     gotoxy(60, 16);
     wprintf(L"│               │");
     gotoxy(60, 17);
-    wprintf(L"│  DIFICULDADE  │");
+    wprintf(L"│    RANKING    │");
     gotoxy(60, 18);
     wprintf(L"│               │");
     gotoxy(60, 19);
@@ -56,9 +57,20 @@ void printMenu(){
     wprintf(L"└───────────────┘");
 }
 
-void selectItem(){
-    char *keySelected[4] = {"printGame", "printDificulty", "printHelp", "quit"};
-    
+void printGame(){
+    wprintf(L"print game");
+}
+
+void printRanking(){
+    wprintf(L"print ranking");
+}
+
+void printHelp(){
+    wprintf(L"print ajuda");
+}
+
+
+void selectItem(){    
     int key = 0;
     int position = 0, x = 38, y = 17;
 
@@ -76,7 +88,15 @@ void selectItem(){
                 position -= 1;
                 x -= 30;
             } else if (key == 13) {
-                wprintf(L"%ls", keySelected[position]);
+               if(position == 0){
+                    printGame();
+               } else if (position == 1){
+                    printRanking();
+               } else if (position == 2){
+                    printHelp();
+               } else if (position == 3){
+                    quit();
+               }
             } else if (key == 27)
 			break;
 
