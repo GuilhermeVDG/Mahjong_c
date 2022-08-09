@@ -4,6 +4,7 @@
 #include<conio.h>
 #include"console.h"
 #include"style.h"
+#include"dificulty.h"
 
 
 void printBars(int heitgh){
@@ -26,4 +27,30 @@ void printMenuTittle(){
     wprintf(L"██║ ╚═╝ ██║██║  ██║██║  ██║╚█████╔╝╚██████╔╝██║ ╚████║╚██████╔╝");
     gotoxy(50,10);
     wprintf(L"╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚════╝  ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ");
+}
+
+void printDificultyTittle(){
+    gotoxy(43, 5);
+    wprintf(L"██████╗ ██╗███████╗██╗ ██████╗██╗   ██╗██╗     ██████╗  █████╗ ██████╗ ███████╗");
+    gotoxy(43, 6);
+    wprintf(L"██╔══██╗██║██╔════╝██║██╔════╝██║   ██║██║     ██╔══██╗██╔══██╗██╔══██╗██╔════╝");
+    gotoxy(43, 7);
+    wprintf(L"██║  ██║██║█████╗  ██║██║     ██║   ██║██║     ██║  ██║███████║██║  ██║█████╗  ");
+    gotoxy(43, 8);
+    wprintf(L"██║  ██║██║██╔══╝  ██║██║     ██║   ██║██║     ██║  ██║██╔══██║██║  ██║██╔══╝  ");
+    gotoxy(43, 9);
+    wprintf(L"██████╔╝██║██║     ██║╚██████╗╚██████╔╝███████╗██████╔╝██║  ██║██████╔╝███████╗");
+    gotoxy(43, 10);
+    wprintf(L"╚═════╝ ╚═╝╚═╝     ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚══════╝");
+
+}
+
+void printMenuStyle(){
+    printBars(25);
+    printMenuTittle();
+}
+
+void printDificultyStyle(){
+    printBars(25);
+    printDificultyTittle();
 }

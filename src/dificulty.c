@@ -5,19 +5,19 @@
 #include<stdlib.h>
 #include"console.h"
 #include"style.h"
-#include"dificulty.h"
+#include"play.h"
 
-void printMenu(){
 
+void printDificulty(){
     reset();
-    printMenuStyle();
+    printDificultyStyle();
 
     gotoxy(30, 15);
     wprintf(L"┌───────────────┐");
     gotoxy(30, 16);
     wprintf(L"│               │");
     gotoxy(30, 17);
-    wprintf(L"│     JOGAR     │");
+    wprintf(L"│     FÁCIL     │");
     gotoxy(30, 18);
     wprintf(L"│               │");
     gotoxy(30, 19);
@@ -28,7 +28,7 @@ void printMenu(){
     gotoxy(60, 16);
     wprintf(L"│               │");
     gotoxy(60, 17);
-    wprintf(L"│    RANKING    │");
+    wprintf(L"│     MÉDIO     │");
     gotoxy(60, 18);
     wprintf(L"│               │");
     gotoxy(60, 19);
@@ -39,7 +39,7 @@ void printMenu(){
     gotoxy(90, 16);
     wprintf(L"│               │");
     gotoxy(90, 17);
-    wprintf(L"│     AJUDA     │");
+    wprintf(L"│    DÍFICIL    │");
     gotoxy(90, 18);
     wprintf(L"│               │");
     gotoxy(90, 19);
@@ -50,23 +50,14 @@ void printMenu(){
     gotoxy(120, 16);
     wprintf(L"│               │");
     gotoxy(120, 17);
-    wprintf(L"│      SAIR     │");
+    wprintf(L"│     VOLTAR    │");
     gotoxy(120, 18);
     wprintf(L"│               │");
     gotoxy(120, 19);
     wprintf(L"└───────────────┘");
 }
 
-void printRanking(){
-    wprintf(L"print ranking");
-}
-
-void printHelp(){
-    wprintf(L"print ajuda");
-}
-
-
-void selectItem(){    
+void selectItemDificulty(){    
     int key = 0;
     int position = 0, x = 38, y = 17;
 
@@ -85,14 +76,14 @@ void selectItem(){
                 x -= 30;
             } else if (key == 13) {
                if(position == 0){
-                    printDificulty();
-                    selectItemDificulty();
+                    printEasy();
                } else if (position == 1){
-                    printRanking();
+                    printMedium();
                } else if (position == 2){
-                    printHelp();
+                    printHard();
                } else if (position == 3){
-                    quit();
+                    printMenu();
+                    selectItem();
                }
             } else if (key == 27)
 			break;
@@ -100,12 +91,4 @@ void selectItem(){
             gotoxy(x, y);
         }    
     } 
- 
 }
-
-
-void main(){
-    _setmode(_fileno(stdout), 0x00020000);
-    printMenu();
-    selectItem();    
-} 
