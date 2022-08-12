@@ -3,6 +3,7 @@
  
 void gotoxy(int x, int y);
 void reset();
+void quit();
 
 
 #endif

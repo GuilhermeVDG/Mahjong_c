@@ -6,6 +6,8 @@
 #include"console.h"
 #include"style.h"
 #include"play.h"
+#include"pieces.h"
+#include"menu.h"
 
 
 void printDificulty(){
@@ -60,6 +62,7 @@ void printDificulty(){
 void selectItemDificulty(){    
     int key = 0;
     int position = 0, x = 38, y = 17;
+    gotoxy(x, y);
 
 
     while(1)

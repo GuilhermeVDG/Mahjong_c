@@ -69,6 +69,7 @@ void printHelp(){
 void selectItem(){    
     int key = 0;
     int position = 0, x = 38, y = 17;
+    gotoxy(x, y);
 
 
     while(1)

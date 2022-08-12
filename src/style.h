@@ -3,5 +3,9 @@
 
 void printBars(int heitgh);
 void printMenuTitle();
+void printDificultyTittle();
+void printMenuStyle();
+void printDificultyStyle();
+void printGameStyle();
 
 #endif

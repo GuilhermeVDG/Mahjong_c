@@ -54,3 +54,6 @@ void printDificultyStyle(){
     printBars(25);
     printDificultyTittle();
 }
+void printGameStyle(){
+    printBars(35);
+}

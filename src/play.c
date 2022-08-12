@@ -6,10 +6,13 @@
 #include"console.h"
 #include"style.h"
 #include"dificulty.h"
+#include"pieces.h"
 
 
 void printEasy(){
-    wprintf(L"printa modo facil");
+    reset();
+    printGameStyle();
+    randomizePiecesEasy();
 }
 
 void printMedium(){
