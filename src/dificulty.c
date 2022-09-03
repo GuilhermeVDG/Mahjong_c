@@ -5,7 +5,6 @@
 #include<stdlib.h>
 #include"console.h"
 #include"style.h"
-#include"play.h"
 #include"pieces.h"
 #include"menu.h"
 
@@ -79,11 +78,12 @@ void selectItemDificulty(){
                 x -= 30;
             } else if (key == 13) {
                if(position == 0){
-                    printEasy();
+                    randomizePiecesEasy();
+                    break;
                } else if (position == 1){
-                    printMedium();
+                    randomizePiecesMedium();
                } else if (position == 2){
-                    printHard();
+                    randomizePiecesHard();
                } else if (position == 3){
                     printMenu();
                     selectItem();

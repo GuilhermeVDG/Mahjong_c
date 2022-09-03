@@ -4,6 +4,7 @@
 #include<conio.h>
 #include"console.h"
 #include"pieces.h"
+#include"style.h"
 
 
 void printPiece(int x, int y, int symbol){
@@ -38,6 +39,7 @@ void randomize(int arr[], int n){
 
 
 void randomizePiecesEasy(){
+    reset();
     int arr[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37};
     int n = sizeof(arr)/sizeof(arr[0]);
     char *symbols[38] = {"a","a","a","a","a","a","b","b","b","b","c","c","c","c","d","d","d","d","e","e","e","e","f","f","f","f","g","g","g","g","h","h","h","h","i","i","i","i"};
@@ -68,4 +70,53 @@ void randomizePiecesEasy(){
                 }
         }
     }
+    
+    printGameStyle();
+    int positionX = 0;
+    int positionY = 0;
+    x = 62;
+    y = 10;
+    int selectedX = 0;
+    int selectedY = 0;
+    int selectedSymbol = 0;
+
+
+
+    
+    while(1){
+        int key = 0;
+        int selectedPiece = selectedX == x && selectedY == y;
+        int samePieces = selectedSymbol == table[positionY][positionX];
+
+        if(_kbhit()){
+            key = _getch();
+            if(key == 0 || key == 0XE0) key = _getch();
+
+            if(key == 77){
+                positionX += 1;
+                x += 5;
+            }
+            if(key == 75){
+                positionX =- 1;
+                x -= 5;
+            }
+            if(key == 80){
+                positionY += 1;
+                y += 4;
+            }
+            if(key == 72){
+                positionY -= 1;
+                y -= 4;
+            }
+        gotoxy(x, y);
+        }
+    }
+}
+
+void randomizePiecesMedium(){
+    wprintf(L"printa modo medio");
+}
+
+void randomizePiecesHard(){
+    wprintf(L"printa modo dificil");
 }

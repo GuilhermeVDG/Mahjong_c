@@ -3,5 +3,7 @@
 
 void printPiece(int x, int y, int symbol);
 void randomizePiecesEasy();
+void randomizePiecesMedium();
+void randomizePiecesHard();
 
 #endif
