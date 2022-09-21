@@ -2,6 +2,7 @@
 #include<wchar.h>
 #include<windows.h>
 #include<conio.h>
+#include<math.h>
 #include"console.h"
 #include"pieces.h"
 #include"style.h"
@@ -79,6 +80,7 @@ void randomizePiecesEasy(){
     int selectedX = 0;
     int selectedY = 0;
     int selectedSymbol = 0;
+    int removedPieces = 0;
 
 
 
@@ -110,9 +112,46 @@ void randomizePiecesEasy(){
                 positionY += 1;
                 y += 4;
             } else
-            if(key == 13 && table[positionY][positionX] && validPiece){
-                gotoxy(x, y - 1);
-                wprintf(L"#");
+            if(key == 13 && table[positionY][positionX] && validPiece && !isSelected){
+                if(!samePieces && selectedSymbol){
+                    gotoxy(x, y - 1);
+                    wprintf(L" ");
+                    gotoxy(selectedX, selectedY - 1);
+                    wprintf(L" ");
+                    selectedX = 0;
+                    selectedY = 0;
+                    selectedSymbol = 0;
+                } else 
+                if(samePieces){
+                    reset();
+                    table[(int)floor((selectedY - 10)/4)][(int)floor((selectedX - 62)/5)] = 0;
+                    table[selectedY][selectedX];
+                    for (int i = 0; i < 6; i++){
+                        for (int j = 0; j < 9; j++){
+                                if(table[i][j]){
+                                    printPiece(x + (j * 5), y + (i * 4), table[i][j]);
+                                }
+                        }
+                    }
+                    removedPieces += 2;
+                    selectedX = 0;
+                    selectedY = 0; 
+                    selectedSymbol = 0;
+                }
+                else {
+                    gotoxy(x, y - 1);
+                    selectedX = x;
+                    selectedY = y;
+                    selectedSymbol = table[positionY][positionX];
+                    wprintf(L"#");
+                }
+            } else
+            if(key == 13 && isSelected){
+                gotoxy(x, y -1);
+                selectedX = 0;
+                selectedY = 0;
+                selectedSymbol = 0;
+                wprintf(L" ");
             }
         gotoxy(x, y);
         }
