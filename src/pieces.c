@@ -87,6 +87,8 @@ void randomizePiecesEasy(){
         int key = 0;
         int selectedPiece = selectedX == x && selectedY == y;
         int samePieces = selectedSymbol == table[positionY][positionX];
+        int validPiece = !table[positionY][positionX + 1] || !table[positionY][positionX - 1];
+        int isSelected = selectedX == x && selectedY == y;
 
         if(_kbhit()){
             key = _getch();
@@ -95,18 +97,22 @@ void randomizePiecesEasy(){
             if(key == 77 && table[positionY][positionX + 1]){
                 positionX += 1;
                 x += 5;
-            }
+            } else
             if(key == 75 && table[positionY][positionX - 1]){
                 positionX -= 1;
                 x -= 5;
-            }
+            } else
             if(key == 72 && positionY > 0){
                 positionY -= 1;
                 y -= 4;
-            }
+            } else
             if(key == 80 && positionY < 6){
                 positionY += 1;
                 y += 4;
+            } else
+            if(key == 13 && table[positionY][positionX] && validPiece){
+                gotoxy(x, y - 1);
+                wprintf(L"#");
             }
         gotoxy(x, y);
         }
