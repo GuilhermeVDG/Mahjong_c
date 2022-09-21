@@ -72,9 +72,9 @@ void randomizePiecesEasy(){
     }
     
     printGameStyle();
-    int positionX = 0;
+    int positionX = 1;
     int positionY = 0;
-    x = 62;
+    x = 67;
     y = 10;
     int selectedX = 0;
     int selectedY = 0;
@@ -82,7 +82,7 @@ void randomizePiecesEasy(){
 
 
 
-    
+    gotoxy(x, y);
     while(1){
         int key = 0;
         int selectedPiece = selectedX == x && selectedY == y;
@@ -92,21 +92,21 @@ void randomizePiecesEasy(){
             key = _getch();
             if(key == 0 || key == 0XE0) key = _getch();
 
-            if(key == 77){
+            if(key == 77 && table[positionY][positionX + 1]){
                 positionX += 1;
                 x += 5;
             }
-            if(key == 75){
-                positionX =- 1;
+            if(key == 75 && table[positionY][positionX - 1]){
+                positionX -= 1;
                 x -= 5;
             }
-            if(key == 80){
-                positionY += 1;
-                y += 4;
-            }
-            if(key == 72){
+            if(key == 72 && positionY > 0){
                 positionY -= 1;
                 y -= 4;
+            }
+            if(key == 80 && positionY < 6){
+                positionY += 1;
+                y += 4;
             }
         gotoxy(x, y);
         }

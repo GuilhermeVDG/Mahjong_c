@@ -7,6 +7,17 @@
 #include"style.h"
 #include"dificulty.h"
 
+void printMenu();
+void printRanking();
+void printHelp();
+void selectItem();
+
+void main(){
+    _setmode(_fileno(stdout), 0x00020000);
+    printMenu();
+    selectItem();    
+} 
+
 void printMenu(){
 
     reset();
@@ -104,9 +115,3 @@ void selectItem(){
  
 }
 
-
-void main(){
-    _setmode(_fileno(stdout), 0x00020000);
-    printMenu();
-    selectItem();    
-} 
