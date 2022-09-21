@@ -73,9 +73,9 @@ void randomizePiecesEasy(){
     }
     
     printGameStyle();
-    int positionX = 1;
+    int positionX = 0;
     int positionY = 0;
-    x = 67;
+    x = 62;
     y = 10;
     int selectedX = 0;
     int selectedY = 0;
@@ -96,11 +96,11 @@ void randomizePiecesEasy(){
             key = _getch();
             if(key == 0 || key == 0XE0) key = _getch();
 
-            if(key == 77 && table[positionY][positionX + 1]){
+            if(key == 77 && positionX < 7){
                 positionX += 1;
                 x += 5;
             } else
-            if(key == 75 && table[positionY][positionX - 1]){
+            if(key == 75 && positionX > 1){
                 positionX -= 1;
                 x -= 5;
             } else
@@ -108,7 +108,7 @@ void randomizePiecesEasy(){
                 positionY -= 1;
                 y -= 4;
             } else
-            if(key == 80 && positionY < 6){
+            if(key == 80 && positionY < 5){
                 positionY += 1;
                 y += 4;
             } else
@@ -125,15 +125,20 @@ void randomizePiecesEasy(){
                 if(samePieces){
                     reset();
                     table[(int)floor((selectedY - 10)/4)][(int)floor((selectedX - 62)/5)] = 0;
-                    table[selectedY][selectedX];
+                    table[positionY][positionX] = 0;
+                    printGameStyle();
                     for (int i = 0; i < 6; i++){
                         for (int j = 0; j < 9; j++){
                                 if(table[i][j]){
-                                    printPiece(x + (j * 5), y + (i * 4), table[i][j]);
+                                    printPiece(60 + (j * 5), 8 + (i * 4), table[i][j]);
                                 }
                         }
                     }
                     removedPieces += 2;
+                    gotoxy(130, 8);
+                    wprintf(L"Peças retiradas: ");
+                    gotoxy(148, 8);
+                    wprintf(L"%d", removedPieces);
                     selectedX = 0;
                     selectedY = 0; 
                     selectedSymbol = 0;
