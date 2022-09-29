@@ -3,6 +3,7 @@
 #include<windows.h>
 #include<conio.h>
 #include<math.h>
+#include<time.h>
 #include"console.h"
 #include"pieces.h"
 #include"style.h"
@@ -65,7 +66,7 @@ void randomizePiecesEasy(){
     for (int i = 0; i < 6; i++){
         for (int j = 0; j < 9; j++){
                 if(table[i][j]){
-                    table[i][j] = newSymbols[l];
+                    table[i][j] = (int) newSymbols[l];
                     printPiece(x + (j * 5), y + (i * 4), table[i][j]);
                     l++;
                 }
@@ -111,6 +112,10 @@ void randomizePiecesEasy(){
             if(key == 80 && positionY < 5){
                 positionY += 1;
                 y += 4;
+            } else
+            if(key == 27){
+                reset();
+                break;
             } else
             if(key == 13 && table[positionY][positionX] && validPiece && !isSelected){
                 if(!samePieces && selectedSymbol){
@@ -161,36 +166,16 @@ void randomizePiecesEasy(){
         gotoxy(x, y);
         }
     if(removedPieces == 38){
-
+        reset();
+        break;
     }
     }
 }
 
-void randomizePiecesMedium(){
-    reset();
-    int arr[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,
-                 68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109};
-
-    int table_layer_1[8][11] = {{0,0,1,1,1,1,1,1,1,0,0},
-                                {0,1,1,1,1,1,1,1,1,1,0},
-                                {0,1,1,1,1,1,1,1,1,1,0},
-                                {0,1,1,1,1,1,1,1,1,1,0},
-                                {0,1,1,1,1,1,1,1,1,1,0},
-                                {0,1,1,1,1,1,1,1,1,1,0},
-                                {0,1,1,1,1,1,1,1,1,1,0},
-                                {0,0,1,1,1,1,1,1,1,0,0}}
-
-    int table_layer_2 = {{0,0,0,0,0,0,0,0,0,0,0},
-                         {0,0,1,1,1,1,1,1,1,0,0},
-                         {0,0,1,1,1,1,1,1,1,0,0},
-                         {0,0,1,1,1,1,1,1,1,0,0},
-                         {0,0,1,1,1,1,1,1,1,0,0},
-                         {0,0,1,1,1,1,1,1,1,0,0},
-                         {0,0,1,1,1,1,1,1,1,0,0},
-                         {0,0,0,0,0,0,0,0,0,0,0}}  
-
+void randomizePiecesMedium(){   
+    wprintf(L"");
 }
 
 void randomizePiecesHard(){
-    wprintf(L"printa modo dificil");
+    wprintf(L"");
 }

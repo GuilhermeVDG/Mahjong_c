@@ -12,8 +12,7 @@ void printRanking();
 void printHelp();
 void selectItem();
 
-void main(){
-    _setmode(_fileno(stdout), 0x00020000);
+void execute(){
     printMenu();
     selectItem();    
 } 
@@ -69,11 +68,11 @@ void printMenu(){
 }
 
 void printRanking(){
-    wprintf(L"print ranking");
+    wprintf(L"Ranking não disponivel");
 }
 
 void printHelp(){
-    wprintf(L"print ajuda");
+    wprintf(L"");
 }
 
 
@@ -99,15 +98,16 @@ void selectItem(){
                if(position == 0){
                     printDificulty();
                     selectItemDificulty();
+                    printMenu();
                } else if (position == 1){
                     printRanking();
                } else if (position == 2){
                     printHelp();
                } else if (position == 3){
                     quit();
-               }
+               } 
             } else if (key == 27)
-			break;
+			    break;
 
             gotoxy(x, y);
         }    
