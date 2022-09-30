@@ -7,5 +7,5 @@ To play, you must needs to have gcc compiler installed on your machine and follo
 3. Run the executable named play and have fun :).
 
 Group names: 
-Guilherme Vanderley
+Guilherme Vanderley,
 Luca de Roldão
